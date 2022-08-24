@@ -7,7 +7,7 @@ jobs:
     name: test
     runs-on: k8s
     steps:
-    - uses: .
+    - uses: ./
       with: 
         title: 'Title for the notification'
         text: 'Text for the notification'
