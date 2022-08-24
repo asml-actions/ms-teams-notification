@@ -41,5 +41,5 @@ runs:
           then
             inputs_url=$url
           fi
-          .github/workflows/send-notification.sh ${{ inputs.title }} ${{ inputs.text}} ${{ inputs.button_text }} "$inputs_url"
+          ./send-notification.sh ${{ inputs.title }} ${{ inputs.text}} ${{ inputs.button_text }} "$inputs_url"
           
