@@ -1,5 +1,6 @@
 # ms-teams-notification
-Internal action to send a notification to MS Teams
+Internal action to send a notification to MS Teams.
+Note: the runner that is used for sending the notification must be able to connect to the internet, since MS Teams is cloud hosted.
 
 # Inputs
 
@@ -10,6 +11,7 @@ Internal action to send a notification to MS Teams
 |button_text|Text to display in the action button|Yes|None|
 |url|Url for the action button|No|A link back to the caller workflow run|
 |teams_webhook_url|Teams webhook url|Yes|None|
+
 # Usage
 
 ``` yaml
@@ -20,3 +22,6 @@ with:
   button_text: 'Text to display in the action button'
   url: "https://asml.com"
 ```
+
+# Example result
+![Example of a teams message sent with this action](./teams-example.png)

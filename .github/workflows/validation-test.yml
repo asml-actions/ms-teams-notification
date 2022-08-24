@@ -5,10 +5,10 @@ on:
 jobs:
   test-the-action:
     name: test
-    runs-on: k8s
+    runs-on: rise
     steps:
     - uses: actions/checkout@v3
-    
+
     - uses: ./
       with: 
         title: 'Title for the notification'
