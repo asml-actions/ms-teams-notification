@@ -39,6 +39,7 @@ runs:
 
           if [ -n "$inputs_url" ] 
           then
+            echo "No url given as input, using the default value: [$url]"
             inputs_url=$url
           fi
           export TEAMS_WEBHOOK=${{ inputs.teams_webhook_url }}

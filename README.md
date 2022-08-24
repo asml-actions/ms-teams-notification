@@ -13,6 +13,8 @@ Note: the runner that is used for sending the notification must be able to conne
 |url|Url for the action button|No|A link back to the caller workflow run|
 |teams_webhook_url|Teams webhook url|Yes|None|
 
+Read the [MS Teams documentation](https://docs.microsoft.com/en-us/outlook/actionable-messages/send-via-connectors) to learn how to set up the connector on an MS Teams channel.
+
 # Usage
 
 ``` yaml
