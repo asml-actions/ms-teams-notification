@@ -1,0 +1,16 @@
+name: Test the action
+on:
+  push:
+
+jobs:
+  test-the-action:
+    name: test
+    runs-on: k8s
+    steps:
+    - uses: .
+      with: 
+        title: 'Title for the notification'
+        text: 'Text for the notification'
+        button_text: 'Text to display in the action button'
+        url: "https://asml.com"
+        teams_webhook_url: {{ secrets.TEAMS_WEBHOOK }}

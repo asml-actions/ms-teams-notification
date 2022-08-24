@@ -1,0 +1,45 @@
+name: 'Send MS Teams notification'
+description: 'Send a notification into an MS Teams channel'
+inputs:
+  title:
+    description: 'Title for the notification'
+    required: true
+    type: string  
+  text:
+    description: 'Text for the notification'
+    required: true
+    type: string  
+    default: Read the workflow logs for more information
+  button_text:
+    description: 'Text to display in the action button'
+    required: true
+    type: string
+    default: "Go to workflow"
+  url:
+    description: 'Url for the action button'
+    required: true
+    type: string
+  teams_webhook_url:
+    description: 'Teams webhook url'
+    required: true
+    type: string
+runs:
+  using: "composite"
+  steps:
+      - id: send-notification
+        name: Send MS Teams notification
+        shell: bash
+        run: |
+          # Send the notification
+          set -e
+          set -o pipefail
+
+          inputs_url=${{ inputs.url }}
+          url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+          if [-n "$inputs_url"] 
+          then
+            inputs_url=$url
+          fi
+          .github/workflows/send-notification.sh ${{ inputs.title }} ${{ inputs.text}} ${{ inputs.button_text }} "$inputs_url"
+          
