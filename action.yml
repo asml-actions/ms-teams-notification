@@ -37,7 +37,7 @@ runs:
           inputs_url=${{ inputs.url }}
           url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
-          if [-n "$inputs_url"] 
+          if [ -n "$inputs_url" ] 
           then
             inputs_url=$url
           fi
