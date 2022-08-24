@@ -37,7 +37,7 @@ runs:
           inputs_url="${{ inputs.url }}"
           url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
-          if [ -n "$inputs_url" ] 
+          if [ ${#inputs_url} == 0 ] 
           then
             echo "No url given as input, using the default value: [$url]"
             inputs_url=$url
