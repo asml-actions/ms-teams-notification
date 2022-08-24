@@ -1,6 +1,7 @@
 # ms-teams-notification
 Internal action to send a notification to MS Teams.
-Note: the runner that is used for sending the notification must be able to connect to the internet, since MS Teams is cloud hosted.
+
+Note: the runner that is used for sending the notification must be able to connect to the internet, since MS Teams is cloud hosted. If your runner has no internet connection, then the action will timeout after 5 minutes.
 
 # Inputs
 
