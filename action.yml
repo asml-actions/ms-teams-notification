@@ -34,7 +34,7 @@ runs:
           set -e
           set -o pipefail
 
-          inputs_url=${{ inputs.url }}
+          inputs_url="${{ inputs.url }}"
           url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
           if [ -n "$inputs_url" ] 
@@ -42,5 +42,5 @@ runs:
             inputs_url=$url
           fi
           export TEAMS_WEBHOOK=${{ inputs.teams_webhook_url }}
-          ./send-notification.sh ${{ inputs.title }} ${{ inputs.text}} ${{ inputs.button_text }} "$inputs_url"
+          ./send-notification.sh "${{ inputs.title }}" "${{ inputs.text}}" "${{ inputs.button_text }}" "$inputs_url"
           
