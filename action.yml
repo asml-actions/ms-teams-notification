@@ -43,5 +43,5 @@ runs:
             inputs_url=$url
           fi
           export TEAMS_WEBHOOK=${{ inputs.teams_webhook_url }}
-          ./send-notification.sh "${{ inputs.title }}" "${{ inputs.text}}" "${{ inputs.button_text }}" "$inputs_url"
+          . $GITHUB_ACTION_PATH/send-notification.sh "${{ inputs.title }}" "${{ inputs.text}}" "${{ inputs.button_text }}" "$inputs_url"
           
