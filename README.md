@@ -18,12 +18,13 @@ Read the [MS Teams documentation](https://docs.microsoft.com/en-us/outlook/actio
 # Usage
 
 ``` yaml
-uses: asml-gh/ms-teams-notification
+uses: asml-gh/ms-teams-notification@main
 with: 
   title: 'Title for the notification'
   text: 'Text for the notification'
   button_text: 'Text to display in the action button'
   url: "https://asml.com"
+  teams_webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
 ```
 
 # Example result
