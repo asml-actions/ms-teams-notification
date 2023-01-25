@@ -96,6 +96,7 @@ echo $body
 curl -i \
   -d "$body" \
   -H "Accept: application/json" \
+  -H 'Content-Type: application/json' \
   $TEAMS_WEBHOOK
 
 if [ "$?" -ne 0 ]
