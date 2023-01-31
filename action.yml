@@ -23,6 +23,22 @@ inputs:
     description: 'Teams webhook url'
     required: true
     type: string
+  spoc_name:
+    description: 'SPOC name'
+    required: false
+    type: string
+  backup_spoc_name:
+    description: 'Backup SPOC name'
+    required: false
+    type: string
+  spoc_email:
+    description: 'SPOC email'
+    required: false
+    type: string
+  backup_spoc_email:
+    description: 'Backup SPOC email'
+    required: false
+    type: string                
 runs:
   using: "composite"
   steps:
@@ -43,5 +59,13 @@ runs:
             inputs_url=$url
           fi
           export TEAMS_WEBHOOK=${{ inputs.teams_webhook_url }}
-          . $GITHUB_ACTION_PATH/send-notification.sh "${{ inputs.title }}" "${{ inputs.text}}" "${{ inputs.button_text }}" "$inputs_url"
+          . $GITHUB_ACTION_PATH/send-notification.sh \
+          "${{ inputs.title }}" \
+          "${{ inputs.text}}" \
+          "${{ inputs.button_text }}" \
+          "$inputs_url" \
+          "${{ inputs.spoc_name }}" \
+          "${{ inputs.backup_spoc_name }}" \
+          "${{ inputs.spoc_email }}" \
+          "${{ inputs.backup_spoc_email }}"
           
