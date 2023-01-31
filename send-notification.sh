@@ -54,7 +54,7 @@ backup_spoc_email=""
 if [ -n "$8" ]
 then
   echo " loading backup spoc email from args"
-  button_link=$8
+  backup_spoc_email=$8
 fi
 
 # load url from environment setting
