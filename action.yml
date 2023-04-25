@@ -29,12 +29,18 @@ runs:
       - id: send-notification
         name: Send MS Teams notification
         shell: bash
+        env:
+          button_url: ${{ inputs.url }}
+          teams_webhook_url: ${{ inputs.teams_webhook_url }}
+          title: ${{ inputs.title }}
+          text: ${{ inputs.text}}
+          button_text: ${{ inputs.button_text }}
         run: |
           # Send the notification
           set -e
           set -o pipefail
 
-          inputs_url="${{ inputs.url }}"
+          inputs_url="${{ env.button_url }}"
           url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
           if [ ${#inputs_url} == 0 ] 
@@ -42,6 +48,6 @@ runs:
             echo "No url given as input, using the default value: [$url]"
             inputs_url=$url
           fi
-          export TEAMS_WEBHOOK=${{ inputs.teams_webhook_url }}
-          . $GITHUB_ACTION_PATH/send-notification.sh "${{ inputs.title }}" "${{ inputs.text}}" "${{ inputs.button_text }}" "$inputs_url"
+          export TEAMS_WEBHOOK=${{ env.teams_webhook_url }}
+          . $GITHUB_ACTION_PATH/send-notification.sh "${{ env.title }}" "${{ env.text}}" "${{ env.button_text }}" "$inputs_url"
           
